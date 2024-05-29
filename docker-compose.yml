@@ -1,0 +1,16 @@
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nodejs
+    ports:
+      - "3000:3000"
+  db:
+    image: postgres
+    restart: always
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: "admin"
+    ports:
+      - "5432:5432"
